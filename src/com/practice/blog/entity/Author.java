@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,7 +53,8 @@ public class Author {
 	
 	// mappedBy refers to author property in course class, and the join column property on
 	// that property, which is author_id to get the blogEntries
-	@OneToMany(mappedBy="author", 
+	@OneToMany(fetch=FetchType.LAZY,
+			mappedBy="author", 
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE, 
 					CascadeType.MERGE, CascadeType.DETACH})
 	private List<BlogEntry> blogEntries;
