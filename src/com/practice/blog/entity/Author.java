@@ -114,6 +114,15 @@ public class Author {
 	public void setAuthorDetail(AuthorDetail authorDetail) {
 		this.authorDetail = authorDetail;
 	}
+	
+
+	public List<BlogEntry> getBlogEntries() {
+		return blogEntries;
+	}
+
+	public void setBlogEntries(List<BlogEntry> blogEntries) {
+		this.blogEntries = blogEntries;
+	}
 
 	@Override
 	public String toString() {
