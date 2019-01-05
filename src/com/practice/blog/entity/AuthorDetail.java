@@ -1,11 +1,14 @@
 package com.practice.blog.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="author_detail")
@@ -31,6 +34,19 @@ public class AuthorDetail {
 	@Column(name="bio")
 	private String bio;
 	
+	@OneToOne(mappedBy="authorDetail", cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	private Author author;
+	
+	
+	
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
 	public AuthorDetail() {
 		
 	}

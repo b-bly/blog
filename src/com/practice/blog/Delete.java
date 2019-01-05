@@ -9,7 +9,7 @@ import com.practice.blog.entity.AuthorDetail;
 import com.practice.blog.entity.Student;
 
 
-public class DeleteDemo {
+public class Delete {
 
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration()
@@ -24,14 +24,14 @@ public class DeleteDemo {
 			
 			session.beginTransaction();
 			
-			int theId = 1;
-			Author tempInstructor = session.get(Author.class, theId);
-			System.out.println("Found instructor: " + tempInstructor);
+			int theId = 3;
+			Author tempAuthor = session.get(Author.class, theId);
+			System.out.println("Found author: " + tempAuthor);
 			
 			
-			if (tempInstructor != null) {
+			if (tempAuthor != null) {
 				// cascades to delete instructorDetail too!
-				session.delete(tempInstructor);
+				session.delete(tempAuthor);
 			}
 			session.getTransaction().commit();
 			

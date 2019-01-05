@@ -26,15 +26,25 @@ public class Create {
 			
 			// create the objects
 		
+//			
+//			Author tempAuthor = 
+//					new Author("Jack", "Jackson", "jack@gmail.com");
+//			
+//			AuthorDetail tempAuthorDetail =
+//					new AuthorDetail(
+//							
+//							"I grew up in the mountains of Nebraska.");	
 			
 			Author tempAuthor = 
-					new Author("Madhu", "Patel", "madhu@luv2code.com");
+					new Author("Pat", "Patson", "pat@gmail.com");
 			
 			AuthorDetail tempAuthorDetail =
 					new AuthorDetail(
 							
-							"Guitar");		
+							"I'm a crackerjack juggler.");	
+			
 			// associate the objects
+			
 			tempAuthor.setAuthorDetail(tempAuthorDetail);
 			
 			// start a transaction
