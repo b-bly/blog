@@ -35,6 +35,8 @@ public class Delete {
 			
 			System.out.println("Done!");
 			
+		} catch (Exception exc) {
+			exc.printStackTrace();
 		} finally {
 			factory.close();
 		}

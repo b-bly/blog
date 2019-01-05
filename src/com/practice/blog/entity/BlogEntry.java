@@ -25,6 +25,14 @@ public class BlogEntry {
 			CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name="author_id")
 	private Author author;
+	
+	public BlogEntry() {
+		
+	}
+	
+	public BlogEntry(String text) {
+		this.text = text;
+	}
 
 	public String getText() {
 		return text;

@@ -6,9 +6,10 @@ import org.hibernate.cfg.Configuration;
 
 import com.practice.blog.entity.Author;
 import com.practice.blog.entity.AuthorDetail;
+import com.practice.blog.entity.BlogEntry;
 
 
-public class Create {
+public class CreateInstructor {
 
 	public static void main(String[] args) {
 
@@ -17,6 +18,7 @@ public class Create {
 								.configure("hibernate.cfg.xml")
 								.addAnnotatedClass(Author.class)
 								.addAnnotatedClass(AuthorDetail.class)
+								.addAnnotatedClass(BlogEntry.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -27,20 +29,20 @@ public class Create {
 			// create the objects
 		
 //			
-			Author tempAuthor = 
-					new Author("Jack", "Jackson", "jack@gmail.com");
-			
-			AuthorDetail tempAuthorDetail =
-					new AuthorDetail(
-							
-							"I grew up in the mountains of Nebraska.");	
-			
 //			Author tempAuthor = 
-//					new Author("Pat", "Patson", "pat@gmail.com");
+//					new Author("Jack", "Jackson", "jack@gmail.com");
 //			
 //			AuthorDetail tempAuthorDetail =
-//					new AuthorDetail("I'm a crackerjack juggler.");	
-//			
+//					new AuthorDetail(
+//							
+//							"I grew up in the mountains of Nebraska.");	
+			
+			Author tempAuthor = 
+					new Author("Pat", "Patson", "pat@gmail.com");
+			
+			AuthorDetail tempAuthorDetail =
+					new AuthorDetail("I'm a crackerjack juggler.");	
+			
 			// associate the objects
 			
 			tempAuthor.setAuthorDetail(tempAuthorDetail);
@@ -60,6 +62,8 @@ public class Create {
 			session.getTransaction().commit();
 			
 			System.out.println("Done!");
+		} catch (Exception exc) {
+			exc.printStackTrace();
 		}
 		finally {
 			factory.close();

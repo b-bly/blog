@@ -1,5 +1,6 @@
 package com.practice.blog.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -64,6 +65,14 @@ public class Author {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+	}
+	
+	public void addBlogEntries(BlogEntry tempBlogEntry) {
+		if (blogEntries == null) {
+			blogEntries = new ArrayList<>();
+		}
+		blogEntries.add(tempBlogEntry);
+		tempBlogEntry.setAuthor(this);
 	}
 
 	public int getId() {

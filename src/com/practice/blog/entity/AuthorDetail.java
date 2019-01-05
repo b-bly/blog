@@ -39,6 +39,15 @@ public class AuthorDetail {
 	@OneToOne(mappedBy="authorDetail", cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Author author;
 	
+
+
+	public AuthorDetail() {
+		
+	}
+
+	public AuthorDetail(String bio) {
+		this.bio = bio;
+	}
 	
 	
 	public Author getAuthor() {
@@ -47,14 +56,6 @@ public class AuthorDetail {
 
 	public void setAuthor(Author author) {
 		this.author = author;
-	}
-
-	public AuthorDetail() {
-		
-	}
-
-	public AuthorDetail(String bio) {
-		this.bio = bio;
 	}
 
 
