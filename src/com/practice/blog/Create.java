@@ -27,22 +27,20 @@ public class Create {
 			// create the objects
 		
 //			
-//			Author tempAuthor = 
-//					new Author("Jack", "Jackson", "jack@gmail.com");
-//			
-//			AuthorDetail tempAuthorDetail =
-//					new AuthorDetail(
-//							
-//							"I grew up in the mountains of Nebraska.");	
-			
 			Author tempAuthor = 
-					new Author("Pat", "Patson", "pat@gmail.com");
+					new Author("Jack", "Jackson", "jack@gmail.com");
 			
 			AuthorDetail tempAuthorDetail =
 					new AuthorDetail(
 							
-							"I'm a crackerjack juggler.");	
+							"I grew up in the mountains of Nebraska.");	
 			
+//			Author tempAuthor = 
+//					new Author("Pat", "Patson", "pat@gmail.com");
+//			
+//			AuthorDetail tempAuthorDetail =
+//					new AuthorDetail("I'm a crackerjack juggler.");	
+//			
 			// associate the objects
 			
 			tempAuthor.setAuthorDetail(tempAuthorDetail);

@@ -92,7 +92,7 @@ public class Author {
 		return authorDetail;
 	}
 
-	public void setAuthorDetail(AuthorDetail AuthorDetail) {
+	public void setAuthorDetail(AuthorDetail authorDetail) {
 		this.authorDetail = authorDetail;
 	}
 
