@@ -6,8 +6,6 @@ import org.hibernate.cfg.Configuration;
 
 import com.practice.blog.entity.Author;
 import com.practice.blog.entity.AuthorDetail;
-import com.practice.blog.entity.Student;
-
 
 public class Delete {
 

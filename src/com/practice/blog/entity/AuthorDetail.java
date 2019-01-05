@@ -34,6 +34,8 @@ public class AuthorDetail {
 	@Column(name="bio")
 	private String bio;
 	
+	// all cascade types except REMOVE so it won't delete Author
+	// mappedBy looks for authorDetail property
 	@OneToOne(mappedBy="authorDetail", cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Author author;
 	

@@ -1,5 +1,7 @@
 package com.practice.blog.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -45,6 +48,13 @@ public class Author {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="author_detail_id")
 	private AuthorDetail authorDetail;
+	
+	// mappedBy refers to author property in course class, and the join column property on
+	// that property, which is author_id to get the blogEntries
+	@OneToMany(mappedBy="author", 
+			cascade= {CascadeType.PERSIST, CascadeType.MERGE, 
+					CascadeType.MERGE, CascadeType.DETACH})
+	private List<BlogEntry> blogEntries;
 	
 	public Author() {
 		

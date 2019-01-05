@@ -20,7 +20,7 @@ public class GetAuthor {
 		try {
 			session.beginTransaction();
 
-			int theId = 2;
+			int theId = 3;
 			AuthorDetail tempAuthorDetail = session.get(AuthorDetail.class, theId);
 
 			System.out.println("Associated author: " + tempAuthorDetail.getAuthor());
