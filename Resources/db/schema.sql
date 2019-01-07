@@ -75,22 +75,21 @@ CREATE TABLE `follower` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
 DROP TABLE IF EXISTS `blog_entry_follower`;
 
 CREATE TABLE `blog_entry_follower` (
-  `follower_id` int(11) DEFAULT NULL,
-  `author_id` int(11) DEFAULT NULL,
+  `follower_id` int(11) NOT NULL,
+  `author_id` int(11) NOT NULL,
 
   PRIMARY KEY (`follower_id`, `author_id`),
-  KEY `FK_FOLLOWER_idx` (`follower_id`),
-  
-  CONSTRAINT `FK_FOLLOWER` 
+  KEY `FK_AUTHOR_idx` (`author_id`),
+
+  CONSTRAINT `FK_FOLLOWER_05` 
   FOREIGN KEY (`follower_id`) 
   REFERENCES `follower` (`id`) 
   ON DELETE NO ACTION ON UPDATE NO ACTION,
   
-  CONSTRAINT `FK_AUTHOR` 
+  CONSTRAINT `FK_AUTHOR_05` 
   FOREIGN KEY (`author_id`) 
   REFERENCES `author` (`id`) 
   ON DELETE NO ACTION ON UPDATE NO ACTION
