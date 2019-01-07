@@ -7,9 +7,11 @@ import org.hibernate.cfg.Configuration;
 import com.practice.blog.entity.Author;
 import com.practice.blog.entity.AuthorDetail;
 import com.practice.blog.entity.BlogEntry;
+import com.practice.blog.entity.Comment;
+import com.practice.blog.entity.Follower;
 
 
-public class CreateInstructor {
+public class CreateAuthor {
 
 	public static void main(String[] args) {
 
@@ -19,6 +21,8 @@ public class CreateInstructor {
 								.addAnnotatedClass(Author.class)
 								.addAnnotatedClass(AuthorDetail.class)
 								.addAnnotatedClass(BlogEntry.class)
+								.addAnnotatedClass(Comment.class)
+								.addAnnotatedClass(Follower.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -28,20 +32,20 @@ public class CreateInstructor {
 			
 			// create the objects
 		
-//			
-//			Author tempAuthor = 
-//					new Author("Jack", "Jackson", "jack@gmail.com");
-//			
-//			AuthorDetail tempAuthorDetail =
-//					new AuthorDetail(
-//							
-//							"I grew up in the mountains of Nebraska.");	
 			
 			Author tempAuthor = 
-					new Author("Pat", "Patson", "pat@gmail.com");
+					new Author("Jack", "Jackson", "jack@gmail.com");
 			
 			AuthorDetail tempAuthorDetail =
-					new AuthorDetail("I'm a crackerjack juggler.");	
+					new AuthorDetail(
+							
+							"I grew up in the mountains of Nebraska.");	
+			
+//			Author tempAuthor = 
+//					new Author("Pat", "Patson", "pat@gmail.com");
+//			
+//			AuthorDetail tempAuthorDetail =
+//					new AuthorDetail("I'm a crackerjack juggler.");	
 			
 			// associate the objects
 			

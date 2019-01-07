@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -58,6 +60,14 @@ public class Author {
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE, 
 					CascadeType.MERGE, CascadeType.DETACH})
 	private List<BlogEntry> blogEntries;
+	
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE, 
+			CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinTable(name="blog_entry_follower",
+			joinColumns=@JoinColumn(name="author_id"),
+			inverseJoinColumns=@JoinColumn(name="follower_id"))
+	private List<Follower> followers;
+	
 	
 	public Author() {
 		
@@ -124,6 +134,15 @@ public class Author {
 
 	public void setBlogEntries(List<BlogEntry> blogEntries) {
 		this.blogEntries = blogEntries;
+	}
+
+	
+	public List<Follower> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(List<Follower> followers) {
+		this.followers = followers;
 	}
 
 	@Override

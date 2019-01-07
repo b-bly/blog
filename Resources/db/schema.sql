@@ -65,5 +65,35 @@ CREATE TABLE `comment` (
   ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `follower`;
+
+CREATE TABLE `follower` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `blog_entry_follower`;
+
+CREATE TABLE `blog_entry_follower` (
+  `follower_id` int(11) DEFAULT NULL,
+  `author_id` int(11) DEFAULT NULL,
+
+  PRIMARY KEY (`follower_id`, `author_id`),
+  KEY `FK_FOLLOWER_idx` (`follower_id`),
+  
+  CONSTRAINT `FK_FOLLOWER` 
+  FOREIGN KEY (`follower_id`) 
+  REFERENCES `follower` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  
+  CONSTRAINT `FK_AUTHOR` 
+  FOREIGN KEY (`author_id`) 
+  REFERENCES `author` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 SET FOREIGN_KEY_CHECKS = 1;
