@@ -30,9 +30,6 @@ public class User {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name= "name")
-	private String name;
-	
 	@Column(name = "username")
 	private String username;
 	
@@ -52,19 +49,9 @@ public class User {
 		
 	}
 
-	public User(String name, String username, String email, String password) {
-		this.name = name;
+	public User(String username, String email) {
 		this.username = username;
 		this.email = email;
-		this.password = password;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getUsername() {

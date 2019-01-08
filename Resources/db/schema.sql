@@ -95,10 +95,13 @@ CREATE TABLE `blog_entry_follower` (
   ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `user_roles`;
+
 DROP TABLE IF EXISTS `roles`;
+
 CREATE TABLE `roles` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`name` int(11) NOT NULL,
+	`name` varchar(50) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `uk_roles_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,15 +116,16 @@ CREATE TABLE `user` (
 	PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `user_roles`;
-
 CREATE TABLE `user_roles` (
 	`user_id` int(11) NOT NULL,
 	`role_id` int(11) NOT NULL,
-	PRIMARY KEY (`user_id`, `role_id`)
-	KEY (fk_user_roles_role_id`) (`role_id`),
+	PRIMARY KEY (`user_id`, `role_id`),
+	KEY `fk_user_roles_role_id` (`role_id`),
 	CONSTRAINT `fk_user_roles_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
 	CONSTRAINT `fk_user_roles_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 SET FOREIGN_KEY_CHECKS = 1;
+
